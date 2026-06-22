@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haven — Lo-fi Vibes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #050810; color: #e8e8f0; font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
+    #stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--duration) infinite ease-in-out; opacity: 0; }
+    @keyframes twinkle { 0%, 100% { opacity: 0; } 50% { opacity: var(--brightness); } }
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.18; z-index: 0; pointer-events: none; }
+    .orb-1 { width: 500px; height: 500px; background: #3b0f8c; top: -100px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: #1a0a4a; bottom: 100px; right: -100px; }
+    .container { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; background: linear-gradient(135deg, #a78bfa, #7c3aed, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 1px; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { color: #9090b0; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    .nav-link:hover { color: #c4b5fd; }
+    .nav-btn { background: transparent; border: 1px solid rgba(167,139,250,0.4); color: #a78bfa; padding: 10px 22px; border-radius: 50px; font-size: 14px; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; text-decoration: none; }
+    .nav-btn:hover { background: rgba(167,139,250,0.1); border-color: #a78bfa; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #7070a0; text-decoration: none; font-size: 14px; margin: 20px 0 0; transition: color 0.3s; }
+    .back-link:hover { color: #c4b5fd; }
+    .hero { padding: 60px 0 50px; }
+    .icon-big { font-size: 64px; margin-bottom: 24px; }
+    .section-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #7c3aed; margin-bottom: 16px; font-weight: 500; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 60px); font-weight: 700; line-height: 1.2; padding-bottom: 8px; margin-bottom: 20px; background: linear-gradient(160deg, #ffffff 30%, #a78bfa 70%, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .intro { font-size: 18px; color: #7070a0; max-width: 620px; line-height: 1.8; margin-bottom: 60px; }
+    .content-block { margin-bottom: 52px; }
+    .content-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: #e8e8f0; margin-bottom: 14px; }
+    .content-block p { font-size: 16px; color: #6060a0; line-height: 1.9; max-width: 680px; }
+    .divider { height: 1px; background: rgba(255,255,255,0.05); margin: 48px 0; }
+    .vibe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 28px; }
+    .vibe-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; padding: 28px 22px; text-align: center; }
+    .vibe-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .vibe-card h3 { font-size: 15px; font-weight: 600; color: #c4b5fd; margin-bottom: 8px; }
+    .vibe-card p { font-size: 13px; color: #4040a0; line-height: 1.6; }
+    .music-player { background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 20px; padding: 28px 32px; margin-top: 28px; display: flex; align-items: center; gap: 20px; }
+    .music-icon { font-size: 40px; }
+    .music-info h3 { font-size: 16px; font-weight: 600; color: #e8e8f0; margin-bottom: 4px; }
+    .music-info p { font-size: 13px; color: #5050a0; line-height: 1.5; }
+    .music-bars { display: flex; gap: 3px; align-items: flex-end; height: 20px; margin-top: 10px; }
+    .bar { width: 4px; background: #7c3aed; border-radius: 2px; animation: pulse var(--d) infinite ease-in-out alternate; }
+    @keyframes pulse { from { height: 4px; } to { height: 20px; } }
+    .cta-block { text-align: center; padding: 60px 0 100px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 20px; }
+    .cta-block h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,42px); margin-bottom: 16px; color: #e8e8f0; }
+    .cta-block p { color: #7070a0; font-size: 16px; margin-bottom: 36px; }
+    .btn-primary { background: linear-gradient(135deg, #7c3aed, #5b21b6); color: white; border: none; padding: 16px 36px; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; box-shadow: 0 0 30px rgba(124,58,237,0.4); text-decoration: none; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
+  </style>
+</head>
+<body>
+  <div id="stars"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo">Haven</a>
+      <div class="nav-links">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="signup.html" class="nav-btn">Sign Up Free</a>
+      </div>
+    </nav>
+    <a href="index.html" class="back-link">← Back to home</a>
+    <div class="hero">
+      <div class="icon-big">🌙</div>
+      <div class="section-label">Feature</div>
+      <h1>Lo-fi Vibes</h1>
+      <p class="intro">The way a space feels changes everything. Haven is designed to feel like a late night conversation with someone you trust — calm, dark, quiet, and real. The environment itself is part of how Haven helps you decompress.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>Why the vibe matters</h2>
+      <p>Most apps are built to keep you alert, scrolling, reacting. Bright colors, notifications, constant stimulation. Haven is the opposite. The dark sky design, the soft glow, the faint stars — it all signals to your brain: you can slow down here. This is a place to breathe.</p>
+    </div>
+    <div class="divider"></div>
+
+    <div class="content-block">
+      <h2>What makes Haven feel different</h2>
+      <div class="vibe-grid">
+        <div class="vibe-card">
+          <div class="icon">🌌</div>
+          <h3>Dark sky design</h3>
+          <p>Deep blues, blacks, and purples. Faint stars in the background. Easy on the eyes, easy on the mind.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="icon">🎵</div>
+          <h3>Lo-fi music</h3>
+          <p>Soft, calming background music playing while you chat. The kind that quiets the noise in your head.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="icon">🌫️</div>
+          <h3>No clutter</h3>
+          <p>No ads, no feeds, no notifications. Just the conversation in front of you and nothing else competing for your attention.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="icon">🕯️</div>
+          <h3>Calm by default</h3>
+          <p>Every design choice in Haven is made to reduce stress, not add to it. Quiet animations, soft glows, gentle transitions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="content-block">
+      <h2>The music</h2>
+      <p>Lo-fi music isn't random — it's specifically chosen because it helps people focus and relax without being distracting. It fills the silence in a way that makes you feel less alone, without pulling your attention away from the conversation.</p>
+      <div class="music-player">
+        <div class="music-icon">🎶</div>
+        <div class="music-info">
+          <h3>Lo-fi beats playing in Haven</h3>
+          <p>Soft background music, always on, always calm. Turn it off anytime — it's there for you, not the other way around.</p>
+          <div class="music-bars">
+            <div class="bar" style="--d:0.8s"></div>
+            <div class="bar" style="--d:1.1s"></div>
+            <div class="bar" style="--d:0.6s"></div>
+            <div class="bar" style="--d:1.3s"></div>
+            <div class="bar" style="--d:0.9s"></div>
+            <div class="bar" style="--d:1.0s"></div>
+            <div class="bar" style="--d:0.7s"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h2>A place that actually feels calm.</h2>
+      <p>Come in. Breathe. Stay as long as you need.</p>
+      <a href="signup.html" class="btn-primary">Join Haven Free →</a>
+    </div>
+  </div>
+  <script>
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 180; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 2 + 0.5;
+      star.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--duration:${Math.random()*4+2}s;--brightness:${Math.random()*0.5+0.1};animation-delay:${Math.random()*5}s;`;
+      container.appendChild(star);
+    }
+  </script>
+</body>
+</html>

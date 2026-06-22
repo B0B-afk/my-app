@@ -252,12 +252,24 @@
       border-radius: 20px;
       padding: 32px 28px;
       transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
     }
     .card:hover {
       background: rgba(124, 58, 237, 0.07);
       border-color: rgba(124, 58, 237, 0.3);
       transform: translateY(-4px);
     }
+    .card .arrow {
+      font-size: 13px;
+      color: #5050a0;
+      margin-top: 14px;
+      display: block;
+      transition: color 0.3s;
+    }
+    .card:hover .arrow { color: #a78bfa; }
 
     .card-icon {
       font-size: 32px;
@@ -396,26 +408,30 @@
         <h2>Real support. Real people.</h2>
       </div>
       <div class="cards">
-        <div class="card">
+        <a href="chat-rooms.html" class="card">
           <div class="card-icon">💬</div>
           <h3>Age-group chat rooms</h3>
-          <p>Talk with people in your exact stage of life. 13–17, 18–25, and 26+. Everyone here knows what you're going through.</p>
-        </div>
-        <div class="card">
+          <p>Talk with people in your exact stage of life. 13–17, 18–25, and beyond. Everyone here knows what you're going through.</p>
+          <span class="arrow">Learn more →</span>
+        </a>
+        <a href="safe-by-design.html" class="card">
           <div class="card-icon">🔒</div>
           <h3>Safe by design</h3>
           <p>AI monitors every conversation in real time. Age verification on signup. No video. No weirdos. Just a safe space.</p>
-        </div>
-        <div class="card">
+          <span class="arrow">Learn more →</span>
+        </a>
+        <a href="text-and-voice.html" class="card">
           <div class="card-icon">🎙️</div>
           <h3>Text & voice</h3>
           <p>Type it out or say it out loud. Private group chats with people you trust, or jump into a room with strangers who get it.</p>
-        </div>
-        <div class="card">
+          <span class="arrow">Learn more →</span>
+        </a>
+        <a href="lofi-vibes.html" class="card">
           <div class="card-icon">🌙</div>
           <h3>Lo-fi vibes</h3>
           <p>Calm background music, dark sky aesthetic. Haven feels like talking to a friend at 2am — safe, quiet, and honest.</p>
-        </div>
+          <span class="arrow">Learn more →</span>
+        </a>
       </div>
     </section>
 
