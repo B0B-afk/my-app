@@ -80,6 +80,20 @@
       letter-spacing: 1px;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      color: #9090b0;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    .nav-link:hover { color: #c4b5fd; }
+
     .nav-btn {
       background: transparent;
       border: 1px solid rgba(167, 139, 250, 0.4);
@@ -90,6 +104,7 @@
       cursor: pointer;
       transition: all 0.3s;
       font-family: 'Inter', sans-serif;
+      text-decoration: none;
     }
     .nav-btn:hover {
       background: rgba(167, 139, 250, 0.1);
@@ -348,14 +363,18 @@
     <!-- Nav -->
     <nav>
       <div class="logo">Haven</div>
-      <button class="nav-btn">Sign Up Free</button>
+      <div class="nav-links">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="mission.html" class="nav-link">Our Mission</a>
+        <a href="signup.html" class="nav-btn">Sign Up Free</a>
+      </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-      <div class="badge">✦ Safe · Real · Anonymous</div>
+      <div class="badge">✦ Safe · Real · Anonymous · AI Monitored</div>
       <h1>You don't have to carry it alone.</h1>
-      <p class="subtitle">Haven is a safe space where young people support each other through the hard stuff — no judgment, no pressure, just people who actually get it.</p>
+      <p class="subtitle">Haven is a safe space where people support each other through the hard stuff — no judgment, no pressure, just people who actually get it.</p>
       <div class="cta-group">
         <button class="btn-primary">Join Haven Free →</button>
         <button class="btn-secondary">Learn more</button>
@@ -402,12 +421,17 @@
     <!-- Who it's for -->
     <section class="for-section">
       <div class="section-label">Who it's for</div>
-      <h2>Built for young people<br/>who feel the pressure.</h2>
-      <p>Students, young adults, anyone between 13 and beyond who needs a place to breathe and be heard.</p>
+      <h2>Built for anyone<br/>who feels the pressure.</h2>
+      <p>Students, adults, anyone 13 and beyond who needs a place to breathe and be heard.</p>
       <div class="age-badges">
         <div class="age-badge">Ages 13–17</div>
         <div class="age-badge">Ages 18–25</div>
-        <div class="age-badge">Ages 26+</div>
+        <div class="age-badge">Ages 26–35</div>
+        <div class="age-badge">Ages 36–45</div>
+        <div class="age-badge">Ages 46–55</div>
+        <div class="age-badge">Ages 56–65</div>
+        <div class="age-badge">Ages 66–75</div>
+        <div class="age-badge">Ages 76+</div>
       </div>
     </section>
 
